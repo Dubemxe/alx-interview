@@ -5,7 +5,7 @@ N queens challenge
 import sys
 
 
-if len(sys.argv) > 2 or len(sys.argv) < 2:
+if len(sys.argv) != 2:
     print("Usage: nqueens N")
     exit(1)
 
@@ -32,15 +32,12 @@ def queens(n, i=0, a=[], b=[], c=[]):
 
 def solve(n):
     """Solution"""
-    k = []
-    i = 0
-    for solution in queens(n, 0):
-        for s in solution:
-            k.append([i, s])
-            i += 1
-        print(k)
-        k = []
-        i = 0
+    for solution in queens(n):
+        result = []
+        for i in range(len(solution)):
+            result.append([i, solution[i]])
+        print(result)
 
 
 solve(n)
+
